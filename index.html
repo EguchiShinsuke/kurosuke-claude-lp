@@ -1,456 +1,789 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>クロスケのClaude日記｜生成AIで人生の幅が広がる実録note</title>
-<meta name="description" content="生成AIのClaudeで遊んでたら、気づいたら月15,000円課金していた。普通の会社員でエンジニア経験ゼロの40代が、失敗しながらチャレンジし続ける実録エッセイ。">
-<meta name="keywords" content="Claude,生成AI,Claude 失敗談,生成AI 40代,AI 普通の人,生成AI サラリーマン,Claude 課金,エンジニア経験ゼロ,クロスケ">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>クロスケのClaude日記 — エンジニア経験ゼロの40代が、Claudeと歩いた三週間の記録</title>
+<meta name="description" content="普通の会社員、エンジニア経験ゼロの40代が、Claudeを知ってからの三週間を失敗・感情・突破の順で書き残した連載エッセイ。Claude 失敗談／生成AI 40代／AI 普通の人／生成AI サラリーマン／Claude 課金 体験。" />
+<meta name="keywords" content="Claude 失敗談, 生成AI 40代, AI 普通の人, 生成AI サラリーマン, Claude 課金 体験, クロスケ, note, エッセイ" />
+<meta name="author" content="クロスケ" />
+<link rel="canonical" href="https://kurosuke-claude-lp.vercel.app/" />
 
-<!-- OGP -->
-<meta property="og:title" content="クロスケのClaude日記｜生成AIで人生の幅が広がる実録note">
-<meta property="og:description" content="生成AIのClaudeで遊んでたら、気づいたら月15,000円課金していた。普通の会社員でエンジニア経験ゼロの40代の実録。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://note.com/kurosuke_claude">
-<meta property="og:image" content="header.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="クロスケのClaude日記｜生成AIで人生の幅が広がる実録note">
-<meta name="twitter:description" content="生成AIのClaudeで遊んでたら、気づいたら月15,000円課金していた。普通の会社員でエンジニア経験ゼロの40代の実録。">
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="クロスケのClaude日記" />
+<meta property="og:title" content="クロスケのClaude日記 — エンジニア経験ゼロの40代が、Claudeと歩いた三週間の記録" />
+<meta property="og:description" content="普通の会社員、エンジニア経験ゼロの40代が、Claudeを知ってからの三週間を失敗・感情・突破の順で書き残した連載エッセイ。" />
+<meta property="og:url" content="https://kurosuke-claude-lp.vercel.app/" />
+<meta property="og:image" content="https://kurosuke-claude-lp.vercel.app/ogp.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="ja_JP" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@ClaudeKurosuke" />
+<meta name="twitter:creator" content="@ClaudeKurosuke" />
+<meta name="twitter:title" content="クロスケのClaude日記 — エンジニア経験ゼロの40代が、Claudeと歩いた三週間の記録" />
+<meta name="twitter:description" content="普通の会社員、エンジニア経験ゼロの40代が、Claudeを知ってからの三週間を失敗・感情・突破の順で書き残した連載エッセイ。" />
+<meta name="twitter:image" content="https://kurosuke-claude-lp.vercel.app/ogp.png" />
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.png" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700;900&family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
-<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --orange: #E8631A;
-    --orange-light: #F5874A;
-    --orange-pale: #FDF0E8;
-    --dark: #1A1208;
-    --mid: #6B4C2A;
-    --light: #FBF7F3;
-    --white: #FFFFFF;
+  :root{
+    --ink:#1F1A17;
+    --ink-soft:#3A312C;
+    --ink-mute:#6E6058;
+    --rule:#DDCFBE;
+    --rule-soft:#EADFCE;
+    --paper:#F7F1E8;
+    --paper-warm:#F0E6D2;
+    --orange:#C8552A;     /* 柿色 */
+    --orange-2:#E8733D;   /* 副 */
+    --orange-deep:#8E3A18;
+    --ochre:#B8894A;
+    --sans:'Noto Sans JP', system-ui, sans-serif;
+    --serif:'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--paper);
+    /* 紙のテクスチャ：淡いノイズと点描 */
+    background-image:
+      radial-gradient(rgba(139,94,54,.05) 1px, transparent 1.2px),
+      radial-gradient(rgba(139,94,54,.03) 1px, transparent 1px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 2px;
+    line-height:1.8;
+    -webkit-font-smoothing:antialiased;
+    font-feature-settings:"palt";
+  }
+  a{color:inherit}
+
+  /* ========= 上部リボン ========= */
+  .ribbon{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.18em;
+    padding:8px 0;
+    text-align:center;
+  }
+  .ribbon b{color:var(--orange-2);font-weight:400}
+
+  /* ========= ヘッダー ========= */
+  header.nav{
+    max-width:1040px;margin:0 auto;
+    padding:22px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+    border-bottom:1px solid var(--rule);
+  }
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+  .brand-mark{
+    width:38px;height:38px;border-radius:50%;
+    background:var(--orange);color:var(--paper);
+    display:grid;place-items:center;
+    font-family:var(--serif);font-weight:900;font-size:20px;
+    letter-spacing:.02em;
+    box-shadow: inset 0 0 0 2px var(--paper), inset 0 0 0 3px var(--orange);
+  }
+  .brand-text{font-family:var(--serif);font-weight:700;font-size:16px;letter-spacing:.06em}
+  .brand-text small{display:block;font-family:var(--mono);font-size:10px;color:var(--ink-mute);letter-spacing:.2em;font-weight:400;margin-top:2px}
+  nav.menu{display:flex;gap:26px;font-size:13px;color:var(--ink-soft)}
+  nav.menu a{text-decoration:none;padding:4px 0;border-bottom:1px solid transparent;transition:.2s}
+  nav.menu a:hover{border-bottom-color:var(--orange)}
+
+  .container{max-width:720px;margin:0 auto;padding:0 28px}
+  .container-wide{max-width:1040px;margin:0 auto;padding:0 28px}
+
+  /* ========= ヒーロー ========= */
+  .hero{padding:72px 0 84px;position:relative}
+  .hero .kicker{
+    font-family:var(--mono);font-size:11px;letter-spacing:.28em;
+    color:var(--orange-deep);text-transform:uppercase;
+    display:flex;align-items:center;gap:14px;margin-bottom:26px;
+  }
+  .hero .kicker::before, .hero .kicker::after{
+    content:"";flex:0 0 26px;height:1px;background:var(--orange-deep);opacity:.5;
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:clamp(34px, 5.2vw, 62px);
+    line-height:1.32;
+    letter-spacing:.01em;
+    margin:0 0 28px;
+    color:var(--ink);
+  }
+  .hero h1 .accent{
+    color:var(--orange);
+    background-image:linear-gradient(transparent 72%, rgba(200,85,42,.14) 72%);
+    padding:0 .08em;
+  }
+  .hero h1 .quiet{font-size:.62em;font-weight:500;color:var(--ink-soft);display:block;margin-top:14px;letter-spacing:.04em}
+
+  .hero .quote{
+    border-left:3px solid var(--orange);
+    padding:6px 0 6px 18px;
+    margin:28px 0 36px;
+    font-family:var(--serif);
+    font-size:17px;
+    color:var(--ink-soft);
+    line-height:1.75;
+    max-width:560px;
+  }
+  .hero .quote cite{
+    display:block;
+    margin-top:8px;
+    font-family:var(--mono);
+    font-style:normal;
+    font-size:10.5px;
+    letter-spacing:.2em;
+    color:var(--ink-mute);
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Zen Kaku Gothic New', sans-serif;
-    background: var(--light);
-    color: var(--dark);
-    overflow-x: hidden;
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:24px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-mute);
+    margin-bottom:36px;
   }
+  .hero-meta span{display:flex;align-items:center;gap:8px}
+  .hero-meta span::before{content:"";width:6px;height:6px;background:var(--orange);border-radius:50%}
 
-  .hero {
-    background: var(--orange);
-    padding: 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 26px;
+    font-family:var(--sans);font-weight:700;font-size:14px;letter-spacing:.05em;
+    text-decoration:none;border-radius:2px;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    border:1px solid transparent;cursor:pointer;
   }
+  .btn-primary{
+    background:var(--orange);color:var(--paper);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .btn-primary:hover{transform:translate(-1px,-1px);box-shadow: 4px 4px 0 var(--ink)}
+  .btn-primary:active{transform:translate(2px,2px);box-shadow: 1px 1px 0 var(--ink)}
+  .btn-ghost{
+    background:transparent;color:var(--ink);
+    border:1px solid var(--ink);
+  }
+  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
+  .btn .arrow{font-family:var(--serif);font-weight:900;transition:.2s}
+  .btn:hover .arrow{transform:translateX(3px)}
 
-  .hero-img {
-    width: 100%;
-    display: block;
-    max-height: 320px;
-    object-fit: cover;
-    object-position: center;
+  .hero-thumb{
+    position:absolute; right:28px; top:88px;
+    width:280px;
+    transform:rotate(3deg);
+    display:none; /* 読み物感を優先、デスクトップでも控えめに右へ */
   }
-
-  .hero-cta {
-    padding: 28px 24px 40px;
-    background: var(--orange);
-  }
-
-  .btn-primary {
-    display: inline-block;
-    background: var(--white);
-    color: var(--orange);
-    font-family: 'Zen Kaku Gothic New', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    padding: 16px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  }
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+  @media (min-width:1100px){
+    .hero-thumb{display:block}
   }
 
-  .about {
-    background: var(--white);
-    padding: 56px 24px;
-    text-align: center;
-    border-bottom: 1px solid #EEE8E0;
+  /* ========= プレースホルダー（素材差し替え前提） ========= */
+  .ph{
+    position:relative;
+    background:
+      repeating-linear-gradient(45deg, rgba(200,85,42,.12) 0 8px, transparent 8px 16px),
+      var(--paper-warm);
+    border:1px solid var(--rule);
+    color:var(--ink-mute);
+    font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+    display:flex;align-items:flex-end;justify-content:flex-start;
+    padding:10px;
+  }
+  .ph::after{
+    content:attr(data-label);
+    display:block;
+  }
+  .ph-square{aspect-ratio:1/1}
+  .ph-16-9{aspect-ratio:16/9}
+  .ph-4-5{aspect-ratio:4/5}
+  .ph-card{aspect-ratio:1.91/1}
+
+  /* ========= セクション共通 ========= */
+  section{padding:72px 0;position:relative}
+  .sec-label{
+    font-family:var(--mono);font-size:11px;letter-spacing:.28em;
+    color:var(--orange-deep);margin-bottom:16px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .sec-label::before{content:"§";font-family:var(--serif);font-size:16px}
+  .sec-title{
+    font-family:var(--serif);font-weight:700;
+    font-size:30px;line-height:1.5;margin:0 0 32px;
+    letter-spacing:.02em;
+  }
+  .rule-fancy{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    color:var(--ochre);margin:0 auto;max-width:200px;
+  }
+  .rule-fancy::before, .rule-fancy::after{
+    content:"";flex:1;height:1px;background:var(--rule);
+  }
+  .rule-fancy span{font-family:var(--serif);font-size:18px;color:var(--ochre)}
+
+  /* ========= Intro（このnoteは何か） ========= */
+  .intro{background:var(--paper-warm);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .intro p{
+    font-family:var(--serif);
+    font-size:19px;line-height:2.1;
+    color:var(--ink-soft);
+    margin:0 0 18px;
+    text-wrap:pretty;
+  }
+  .intro p:last-of-type{margin-bottom:0}
+  .intro .lead-mark{
+    font-family:var(--serif);font-weight:900;
+    font-size:64px;line-height:1;float:left;
+    color:var(--orange);
+    padding:6px 14px 0 0;
+    margin-top:4px;
   }
 
-  .about-text {
-    font-family: 'Shippori Mincho', serif;
-    font-size: clamp(17px, 4vw, 22px);
-    line-height: 2;
-    color: var(--dark);
-    max-width: 560px;
-    margin: 0 auto 8px;
+  /* ========= About ========= */
+  .about{display:grid;grid-template-columns: 240px 1fr;gap:48px;align-items:start}
+  @media (max-width:720px){ .about{grid-template-columns:1fr} }
+  .about-ph{width:100%}
+  .about-ph .ph{aspect-ratio:4/5}
+  .about-caption{
+    font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+    color:var(--ink-mute);margin-top:10px;text-align:center;
+  }
+  .about-body .pen{
+    font-family:var(--mono);font-size:11px;letter-spacing:.24em;
+    color:var(--orange-deep);margin-bottom:8px;
+  }
+  .about-body h3{
+    font-family:var(--serif);font-weight:700;font-size:28px;
+    margin:0 0 24px;letter-spacing:.04em;
+  }
+  .about-body .bio{
+    font-family:var(--serif);font-size:17px;line-height:2.1;color:var(--ink-soft);
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    padding:22px 0;margin:0;
+  }
+  .about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .tag{
+    font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+    padding:6px 12px;border:1px solid var(--rule);
+    color:var(--ink-mute);border-radius:2px;
+    background:var(--paper);
   }
 
-  .episodes {
-    padding: 56px 24px;
-    max-width: 640px;
-    margin: 0 auto;
+  /* ========= Index（話数リスト） ========= */
+  .index-list{list-style:none;padding:0;margin:0}
+  .index-item{
+    display:grid;grid-template-columns:72px 120px 1fr auto;
+    gap:24px;align-items:baseline;
+    padding:22px 0;
+    border-bottom:1px dashed var(--rule);
+    text-decoration:none;color:inherit;
+    transition:background .2s, padding .2s;
+  }
+  .index-item:hover{
+    background:var(--paper-warm);
+    padding-left:14px;padding-right:14px;
+  }
+  .index-item:hover .ix-title{color:var(--orange-deep)}
+  .index-item:first-child{border-top:1px solid var(--rule)}
+  .ix-num{
+    font-family:var(--serif);font-weight:900;
+    font-size:28px;color:var(--orange);line-height:1;
+  }
+  .ix-num small{
+    display:block;font-family:var(--mono);font-size:10px;color:var(--ink-mute);
+    letter-spacing:.18em;font-weight:400;margin-top:4px;
+  }
+  .ix-badge{
+    font-family:var(--mono);font-size:10px;letter-spacing:.16em;
+    color:var(--ink);padding:3px 8px;
+    border:1px solid var(--ink);border-radius:2px;
+    justify-self:start;white-space:nowrap;
+  }
+  .ix-badge.paid{background:var(--ink);color:var(--paper)}
+  .ix-title{
+    font-family:var(--serif);font-weight:500;font-size:18px;
+    line-height:1.65;letter-spacing:.02em;transition:color .2s;
+  }
+  .ix-arrow{
+    font-family:var(--serif);font-weight:400;font-size:22px;color:var(--ink-mute);
+  }
+  @media (max-width:640px){
+    .index-item{grid-template-columns:56px 1fr auto;}
+    .ix-badge{grid-column:1 / -1;justify-self:start;margin-top:4px}
+  }
+  .index-more{
+    margin-top:22px;text-align:center;
+    font-family:var(--serif);font-style:italic;font-size:15px;
+    color:var(--ink-mute);letter-spacing:.04em;
+  }
+  .index-more::before,.index-more::after{content:"——　";color:var(--ochre)}
+  .index-more::after{content:"　——"}
+
+  /* ========= 番外編 ========= */
+  .bangai{
+    margin-top:56px;padding-top:28px;
+    border-top:1px dashed var(--rule);
+  }
+  .bangai-head{
+    display:flex;align-items:center;gap:14px;margin-bottom:14px;
+  }
+  .bangai-label{
+    font-family:var(--serif);font-weight:700;font-size:15px;
+    letter-spacing:.12em;color:var(--ink-soft);
+    padding:3px 10px;border:1px solid var(--rule);background:var(--paper);
+  }
+  .bangai-rule{flex:1;height:1px;background:var(--rule)}
+  .bangai-sub{
+    font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--ink-mute);
+  }
+  .bangai-list{list-style:none;padding:0;margin:0}
+  .bangai-item{
+    display:grid;grid-template-columns:64px 64px 1fr auto;gap:16px;
+    align-items:baseline;padding:14px 0;
+    border-bottom:1px dotted var(--rule);
+    text-decoration:none;color:inherit;transition:.2s;
+  }
+  .bangai-item:first-child{border-top:1px dotted var(--rule)}
+  .bangai-item:hover{padding-left:10px;padding-right:10px;background:var(--paper-warm)}
+  .bangai-item:hover .bg-title{color:var(--orange-deep)}
+  .bg-num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--orange-deep)}
+  .bg-badge{
+    font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+    padding:2px 8px;border:1px solid var(--rule);color:var(--ink-mute);
+    justify-self:start;white-space:nowrap;
+  }
+  .bg-title{
+    font-family:var(--serif);font-size:15px;line-height:1.6;color:var(--ink-soft);
+    transition:color .2s;
+  }
+  .bg-arrow{font-family:var(--serif);font-size:16px;color:var(--ink-mute)}
+  @media (max-width:640px){
+    .bangai-item{grid-template-columns:56px 1fr auto}
+    .bg-badge{grid-column:1 / -1;justify-self:start;margin-top:2px}
   }
 
-  .section-label {
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    color: var(--orange);
-    text-transform: uppercase;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  /* ========= マガジン案内 ========= */
+  .magazine{
+    background:var(--ink);color:var(--paper);
+    border-top:6px solid var(--orange);
+    position:relative;overflow:hidden;
   }
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: #E0D8CF;
+  .magazine::before{
+    content:"";position:absolute;inset:0;
+    background:
+      repeating-linear-gradient(45deg, rgba(255,255,255,.02) 0 10px, transparent 10px 20px);
+    pointer-events:none;
+  }
+  .magazine .container{position:relative;z-index:1}
+  .magazine .sec-label{color:var(--orange-2)}
+  .magazine .sec-title{color:var(--paper)}
+  .mg-grid{display:grid;grid-template-columns: 1fr 260px;gap:48px;align-items:center}
+  @media (max-width:720px){ .mg-grid{grid-template-columns:1fr} }
+  .mg-body p{
+    font-family:var(--serif);font-size:17px;line-height:2;color:#D9CCBA;margin:0 0 12px;
+  }
+  .mg-price{
+    display:flex;align-items:baseline;gap:12px;margin:24px 0 20px;
+    font-family:var(--serif);
+  }
+  .mg-price .yen{font-size:48px;font-weight:900;color:var(--orange-2);letter-spacing:.01em}
+  .mg-price .unit{font-size:14px;color:#D9CCBA;font-family:var(--sans)}
+  .mg-note{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:#A89685;
+    border:1px dashed #5A4C41;padding:10px 14px;margin:0 0 26px;
+    line-height:1.9;
+  }
+  .mg-ph .ph{aspect-ratio:3/4;background:
+      repeating-linear-gradient(45deg, rgba(232,115,61,.18) 0 8px, transparent 8px 16px),
+      #2A2320;color:#8B7968;border-color:#3E332C}
+
+  /* ========= Follow ========= */
+  .follow{text-align:center}
+  .follow .sec-label{justify-content:center}
+  .follow-row{
+    display:grid;grid-template-columns:1fr 1fr;gap:20px;
+    max-width:640px;margin:32px auto 0;
+  }
+  @media (max-width:600px){ .follow-row{grid-template-columns:1fr} }
+  .follow-card{
+    display:block;padding:28px 22px;
+    border:1px solid var(--rule);background:var(--paper);
+    text-decoration:none;color:inherit;text-align:left;
+    transition:.2s;
+  }
+  .follow-card:hover{border-color:var(--orange);transform:translateY(-2px);box-shadow:3px 3px 0 var(--ink)}
+  .follow-card .fc-top{
+    display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;
+  }
+  .follow-card .fc-logo{
+    width:36px;height:36px;border-radius:2px;
+    background:var(--ink);color:var(--paper);
+    display:grid;place-items:center;
+    font-family:var(--serif);font-weight:900;font-size:16px;
+  }
+  .follow-card.note-card .fc-logo{background:#41C9B4}
+  .follow-card .fc-handle{
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-mute);
+  }
+  .follow-card h4{
+    font-family:var(--serif);font-size:18px;font-weight:700;margin:0 0 6px;letter-spacing:.02em;
+  }
+  .follow-card p{
+    margin:0;font-size:13px;color:var(--ink-soft);line-height:1.7;
+  }
+  .follow-card .fc-arrow{
+    font-family:var(--serif);font-size:20px;color:var(--orange);
   }
 
-  .episode-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+  /* ========= Footer ========= */
+  footer{
+    background:var(--paper-warm);
+    border-top:1px solid var(--rule);
+    padding:48px 0 56px;
+    font-size:12.5px;color:var(--ink-mute);
+  }
+  footer .ft-grid{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    gap:32px;flex-wrap:wrap;
+  }
+  footer .ft-brand{max-width:360px}
+  footer .ft-brand p{margin:8px 0 0;line-height:1.8}
+  footer .ft-links{display:flex;gap:28px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.14em}
+  footer .ft-links a{text-decoration:none;border-bottom:1px solid transparent}
+  footer .ft-links a:hover{border-bottom-color:var(--orange)}
+  .ft-mark{font-family:var(--serif);font-weight:900;color:var(--ink);font-size:18px;letter-spacing:.06em}
+  .ft-bottom{
+    margin-top:32px;padding-top:20px;border-top:1px solid var(--rule);
+    display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;flex-wrap:wrap;gap:12px;
   }
 
-  .episode-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 20px 0;
-    border-bottom: 1px solid #EEE8E0;
-    text-decoration: none;
-    color: inherit;
-    transition: background 0.15s;
-  }
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
 
-  .episode-num {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 11px;
-    color: var(--orange);
-    letter-spacing: 0.1em;
-    min-width: 36px;
-    padding-top: 3px;
-  }
-
-  .episode-body { flex: 1; }
-
-  .episode-title {
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.5;
-    margin-bottom: 4px;
-    color: var(--dark);
-  }
-
-  .badge {
-    display: inline-block;
-    font-size: 10px;
-    padding: 2px 8px;
-    border-radius: 3px;
-    letter-spacing: 0.08em;
-    font-weight: 700;
-  }
-  .badge-free { background: #E8F5E3; color: #3A7D2A; }
-  .badge-paid { background: #FFF0E0; color: var(--orange); }
-
-  .episode-ongoing {
-    padding: 20px 0;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    color: var(--mid);
-  }
-  .episode-ongoing-num {
-    min-width: 36px;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    color: #C0B0A0;
-  }
-  .episode-ongoing-text { font-size: 13px; line-height: 1.6; }
-
-  .magazine {
-    background: var(--white);
-    padding: 40px 24px;
-    text-align: center;
-    border-top: 1px solid #EEE8E0;
-    border-bottom: 1px solid #EEE8E0;
-  }
-
-  .magazine-inner {
-    max-width: 480px;
-    margin: 0 auto;
-  }
-
-  .magazine-label {
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    color: var(--orange);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  .magazine-text {
-    font-size: 13px;
-    line-height: 1.9;
-    color: var(--mid);
-    margin-bottom: 20px;
-  }
-
-  .btn-magazine {
-    display: inline-block;
-    background: var(--orange-pale);
-    color: var(--orange);
-    font-family: 'Zen Kaku Gothic New', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    padding: 14px 36px;
-    border-radius: 50px;
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    border: 1px solid var(--orange-light);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .btn-magazine:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(232,99,26,0.2);
-  }
-
-  .profile {
-    background: var(--orange-pale);
-    padding: 56px 24px;
-    text-align: center;
-    border-top: 1px solid #EEE8E0;
-  }
-
-  .profile-icon {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    margin: 0 auto 20px;
-    overflow: hidden;
-    background: var(--orange);
-  }
-
-  .profile-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .profile-name {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--dark);
-  }
-
-  .profile-text {
-    font-size: 14px;
-    line-height: 1.9;
-    color: var(--mid);
-    max-width: 480px;
-    margin: 0 auto 24px;
-  }
-
-  .profile-links {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .profile-link {
-    font-size: 13px;
-    color: var(--orange);
-    text-decoration: none;
-    border-bottom: 1px solid var(--orange-light);
-    padding-bottom: 2px;
-  }
-
-  .cta-footer {
-    background: var(--dark);
-    padding: 56px 24px;
-    text-align: center;
-  }
-
-  .cta-footer-text {
-    font-family: 'Shippori Mincho', serif;
-    font-size: clamp(18px, 4vw, 24px);
-    color: var(--white);
-    margin-bottom: 28px;
-    line-height: 1.7;
-  }
-
-  .btn-secondary {
-    display: inline-block;
-    background: var(--orange);
-    color: var(--white);
-    font-family: 'Zen Kaku Gothic New', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    padding: 16px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 20px rgba(232,99,26,0.4);
-  }
-  .btn-secondary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(232,99,26,0.5);
-  }
-
-  .footer-note {
-    margin-top: 20px;
-    font-size: 12px;
-    color: rgba(255,255,255,0.4);
-  }
-
-  @media (max-width: 480px) {
-    .episodes { padding: 40px 20px; }
-    .magazine { padding: 32px 20px; }
-    .profile { padding: 44px 20px; }
-    .cta-footer { padding: 44px 20px; }
-  }
+  /* selection */
+  ::selection{background:var(--orange);color:var(--paper)}
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">クロスケのClaude日記｜生成AIで人生の幅が広がる実録note</h1>
-  <img class="hero-img" src="header.jpg" alt="クロスケのClaude日記 - 普通の人でもやればできる、と信じてる" />
-  <div class="hero-cta">
-    <a href="https://note.com/kurosuke_claude/n/n9ccb0290c231" class="btn-primary" target="_blank">第1話を読む（無料）→</a>
+<div class="ribbon">
+  <span>連載中 &nbsp;·&nbsp; 第1〜4回は無料 &nbsp;·&nbsp; マガジン <b>¥980</b> &nbsp;·&nbsp; note.com/kurosuke_claude</span>
+</div>
+
+<header class="nav">
+  <a class="brand" href="#top">
+    <span class="brand-mark">ク</span>
+    <span class="brand-text">
+      クロスケのClaude日記
+      <small>kurosuke_claude ／ note</small>
+    </span>
+  </a>
+  <nav class="menu" aria-label="section">
+    <a href="#about">このnoteについて</a>
+    <a href="#author">著者</a>
+    <a href="#index">話数</a>
+    <a href="#magazine">マガジン</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero container" id="top" data-screen-label="01 Hero">
+  <div class="kicker">連載エッセイ ／ 生成AI体験記</div>
+
+  <h1>
+    <span class="accent">Claude</span>で<br>
+    人生の幅が広がる。<br>
+    <span class="quiet">エンジニア経験ゼロの40代が、チャレンジし続けながら綴っていく実録。</span>
+  </h1>
+
+  <blockquote class="quote">
+    月100ドルを払ったのに、肝心なことをまだ知らなかった。
+    <cite>── 本文より</cite>
+  </blockquote>
+
+  <div class="hero-meta">
+    <span>全9回＋更新中</span>
+    <span>第1〜4回 無料公開</span>
+    <span>エッセイ × 実用</span>
+  </div>
+
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://note.com/kurosuke_claude/n/n9ccb0290c231" target="_blank" rel="noopener">
+      第1話を読む <span class="arrow">→</span>
+    </a>
+    <a class="btn btn-ghost" href="#about">このnoteについて</a>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about">
-  <p class="about-text">生成AIのClaudeを触ってたら夢中になった。<br>1週間でWebアプリリリース、次の1週間でnoteで初売上。<br>全部初めての体験だった。でも実は失敗の連続。<br>その過程、全部書きました。</p>
+<!-- ============ INTRO ============ -->
+<section class="intro" id="about" data-screen-label="02 Intro">
+  <div class="container reveal">
+    <div class="sec-label">このnoteは何か</div>
+    <h2 class="sec-title">手順書ではなく、記録です。</h2>
+    <p>
+      <span class="lead-mark">エ</span>ンジニア経験ゼロの40代会社員が、三月下旬にClaudeを知ってからの三週間。失敗と、感情と、突破を、起きた順番のまま書き残しています。
+    </p>
+    <p>
+      テーマは「Claudeで人生の幅が広がる」。手順の正解ではなく、普通の人が、迷いながら、止まらずに進む姿そのものを届けたい。
+    </p>
+    <p>
+      読み終わったあとに「自分もできるかもしれない」と思ってもらえたらうれしい。けれどそれよりも先に、クロスケという人物を面白がってもらえたら、もっとうれしいです。
+    </p>
+  </div>
 </section>
 
-<!-- EPISODES -->
-<section class="episodes">
-  <p class="section-label">Episodes</p>
-  <div class="episode-list">
+<!-- ============ AUTHOR ============ -->
+<section class="container" id="author" data-screen-label="03 Author">
+  <div class="reveal">
+    <div class="sec-label">著者について</div>
+    <h2 class="sec-title">クロスケ、と呼ばれています。</h2>
 
-    <a href="https://note.com/kurosuke_claude/n/n9ccb0290c231" target="_blank" class="episode-item">
-      <span class="episode-num">第1回</span>
-      <div class="episode-body">
-        <p class="episode-title">URLを渡しただけで、1分で答えが出た</p>
-        <span class="badge badge-free">無料</span>
+    <div class="about">
+      <div class="about-ph">
+        <div class="ph ph-4-5" data-label="[ tie-icon.png ]"></div>
+        <div class="about-caption">IMG_01 ／ ネクタイ記号</div>
       </div>
-    </a>
-
-    <a href="https://note.com/kurosuke_claude/n/n63107528aa15" target="_blank" class="episode-item">
-      <span class="episode-num">第2回</span>
-      <div class="episode-body">
-        <p class="episode-title">ジェームズボンドに体重管理をさせた</p>
-        <span class="badge badge-free">無料</span>
+      <div class="about-body">
+        <div class="pen">Pen name ── クロスケ</div>
+        <h3>普通の会社員</h3>
+        <p class="bio">
+          40代。サウナ・バー・靴磨きが好き。普通の会社員でもちろんエンジニア経験ゼロ。Claudeを知って1週間でWebアプリをリリースしたら友人の評価は散々、次の1週間でnoteを出したら売上わずか4千円。それでも止まれない。続きは、これから。
+        </p>
+        <div class="about-tags">
+          <span class="tag">SAUNA</span>
+          <span class="tag">BAR</span>
+          <span class="tag">SHOE-SHINE</span>
+          <span class="tag">深夜の画面</span>
+          <span class="tag">自虐ユーモア</span>
+        </div>
       </div>
-    </a>
-
-    <a href="https://note.com/kurosuke_claude/n/n491396ae7b06" target="_blank" class="episode-item">
-      <span class="episode-num">第3回</span>
-      <div class="episode-body">
-        <p class="episode-title">美女のはずが仙人になって、気づいたら月15,000円だった</p>
-        <span class="badge badge-free">無料</span>
-      </div>
-    </a>
-
-    <a href="https://note.com/kurosuke_claude/n/n1790411071b8" target="_blank" class="episode-item">
-      <span class="episode-num">第4回</span>
-      <div class="episode-body">
-        <p class="episode-title">先に言えよ——Claude Codeを知るまで</p>
-        <span class="badge badge-free">無料</span>
-      </div>
-    </a>
-
-    <a href="https://note.com/kurosuke_claude/n/n6abb9e7e2219" target="_blank" class="episode-item">
-      <span class="episode-num">第5回</span>
-      <div class="episode-body">
-        <p class="episode-title">黒い画面と呪文</p>
-        <span class="badge badge-paid">有料</span>
-      </div>
-    </a>
-
-    <a href="https://note.com/kurosuke_claude/n/n3ad1d02aa69f" target="_blank" class="episode-item">
-      <span class="episode-num">第6回</span>
-      <div class="episode-body">
-        <p class="episode-title">AIに「遠慮するな」と命令した</p>
-        <span class="badge badge-paid">有料</span>
-      </div>
-    </a>
-
-    <a href="https://note.com/kurosuke_claude/n/n9f80d653133f" target="_blank" class="episode-item">
-      <span class="episode-num">第7回</span>
-      <div class="episode-body">
-        <p class="episode-title">正直に言います。今の作業方法は最悪です。</p>
-        <span class="badge badge-paid">有料</span>
-      </div>
-    </a>
-
-    <a href="https://note.com/kurosuke_claude/n/nbdc3631acd11" target="_blank" class="episode-item">
-      <span class="episode-num">第8回</span>
-      <div class="episode-body">
-        <p class="episode-title">なぞかけの謎をとく</p>
-        <span class="badge badge-paid">有料</span>
-      </div>
-    </a>
-
-    <div class="episode-ongoing">
-      <span class="episode-ongoing-num">第9回〜</span>
-      <p class="episode-ongoing-text">現在進行形で更新中。<br>noteで続きを読めます。</p>
     </div>
-
   </div>
 </section>
 
-<!-- MAGAZINE -->
-<section class="magazine">
-  <div class="magazine-inner">
-    <p class="magazine-label">Magazine</p>
-    <p class="magazine-text">第5回以降の有料記事をまとめて読むなら、マガジンがお得です。<br>単品より200円安く、追加分もそのまま読めます。</p>
-    <a href="https://note.com/kurosuke_claude/m/mf036c8177e75" class="btn-magazine" target="_blank">マガジンを見る（¥980）→</a>
+<div class="container" style="padding:20px 28px"><div class="rule-fancy"><span>✦</span></div></div>
+
+<!-- ============ INDEX ============ -->
+<section class="container" id="index" data-screen-label="04 Index">
+  <div class="reveal">
+    <div class="sec-label">話数</div>
+    <h2 class="sec-title">これまでの記録。</h2>
+
+    <ol class="index-list">
+      <li>
+        <a class="index-item" href="https://note.com/kurosuke_claude/n/n9ccb0290c231" target="_blank" rel="noopener">
+          <div class="ix-num">01<small>DAY 01</small></div>
+          <span class="ix-badge">無料</span>
+          <div class="ix-title">URLを渡しただけで、1分で答えが出た。</div>
+          <div class="ix-arrow">→</div>
+        </a>
+      </li>
+      <li>
+        <a class="index-item" href="https://note.com/kurosuke_claude/n/n63107528aa15" target="_blank" rel="noopener">
+          <div class="ix-num">02<small>DAY 02</small></div>
+          <span class="ix-badge">無料</span>
+          <div class="ix-title">ジェームズボンドに体重管理をさせた。</div>
+          <div class="ix-arrow">→</div>
+        </a>
+      </li>
+      <li>
+        <a class="index-item" href="https://note.com/kurosuke_claude/n/n491396ae7b06" target="_blank" rel="noopener">
+          <div class="ix-num">03<small>DAY 03</small></div>
+          <span class="ix-badge">無料</span>
+          <div class="ix-title">美女のはずが仙人になって、気づいたら月15,000円だった。</div>
+          <div class="ix-arrow">→</div>
+        </a>
+      </li>
+      <li>
+        <a class="index-item" href="https://note.com/kurosuke_claude/n/n1790411071b8" target="_blank" rel="noopener">
+          <div class="ix-num">04<small>DAY 04</small></div>
+          <span class="ix-badge">無料</span>
+          <div class="ix-title">先に言えよ ── Claude Codeを知るまで。</div>
+          <div class="ix-arrow">→</div>
+        </a>
+      </li>
+      <li>
+        <a class="index-item" href="https://note.com/kurosuke_claude/n/n6abb9e7e2219" target="_blank" rel="noopener">
+          <div class="ix-num">05<small>DAY 05</small></div>
+          <span class="ix-badge paid">有料 ¥300</span>
+          <div class="ix-title">黒い画面と呪文。</div>
+          <div class="ix-arrow">→</div>
+        </a>
+      </li>
+      <li>
+        <a class="index-item" href="https://note.com/kurosuke_claude/n/n3ad1d02aa69f" target="_blank" rel="noopener">
+          <div class="ix-num">06<small>DAY 06</small></div>
+          <span class="ix-badge paid">有料 ¥300</span>
+          <div class="ix-title">AIに、遠慮するなと命令した。</div>
+          <div class="ix-arrow">→</div>
+        </a>
+      </li>
+      <li>
+        <a class="index-item" href="https://note.com/kurosuke_claude/n/n9f80d653133f" target="_blank" rel="noopener">
+          <div class="ix-num">07<small>DAY 07</small></div>
+          <span class="ix-badge paid">有料 ¥300</span>
+          <div class="ix-title">正直に言います。今の作業方法は最悪です。</div>
+          <div class="ix-arrow">→</div>
+        </a>
+      </li>
+      <li>
+        <a class="index-item" href="https://note.com/kurosuke_claude/n/nbdc3631acd11" target="_blank" rel="noopener">
+          <div class="ix-num">08<small>DAY 08</small></div>
+          <span class="ix-badge paid">有料 ¥300</span>
+          <div class="ix-title">なぞかけの謎をとく。</div>
+          <div class="ix-arrow">→</div>
+        </a>
+      </li>
+      <li>
+        <a class="index-item" href="https://note.com/kurosuke_claude/n/n67f8bdd89854" target="_blank" rel="noopener">
+          <div class="ix-num">09<small>DAY 09</small></div>
+          <span class="ix-badge paid">有料 ¥300</span>
+          <div class="ix-title">帝国ホテルで飲みながら、Googleに勝とうとした。</div>
+          <div class="ix-arrow">→</div>
+        </a>
+      </li>
+    </ol>
+
+    <p class="index-more">以降は、現在進行形で更新中。</p>
+
+    <div class="bangai">
+      <div class="bangai-head">
+        <span class="bangai-label">番外編</span>
+        <span class="bangai-rule"></span>
+        <span class="bangai-sub">EXTRA ／ 本編のあいまに</span>
+      </div>
+      <ol class="bangai-list">
+        <li>
+          <a class="bangai-item" href="https://note.com/kurosuke_claude/n/na20b81f71f44" target="_blank" rel="noopener">
+            <span class="bg-num">EX.01</span>
+            <span class="bg-badge">無料</span>
+            <span class="bg-title">スナックを盛り上げるために、ママにパワポ資料を作った。クロードで。</span>
+            <span class="bg-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="bangai-item" href="https://note.com/kurosuke_claude/n/n26a340d8d664" target="_blank" rel="noopener">
+            <span class="bg-num">EX.02</span>
+            <span class="bg-badge">無料</span>
+            <span class="bg-title">壁打ちしたら、プレゼンがここまで変わった。</span>
+            <span class="bg-arrow">→</span>
+          </a>
+        </li>
+      </ol>
+    </div>
   </div>
 </section>
 
-<!-- PROFILE -->
-<section class="profile">
-  <div class="profile-icon">
-    <img src="necktie.png.png" alt="クロスケ">
-  </div>
-  <p class="profile-name">クロスケ</p>
-  <p class="profile-text">
-    40代。サウナ・バー・靴磨きが好き。普通の会社員でもちろんエンジニア経験ゼロ。Claudeを知って1週間でWebアプリをリリースしたら友人の評価は散々、次の1週間でnoteを出したら売上わずか4千円。それでも止まれない。続きは、これから。
-  </p>
-  <div class="profile-links">
-    <a href="https://note.com/kurosuke_claude" class="profile-link" target="_blank">note</a>
-    <a href="https://x.com/ClaudeKurosuke" class="profile-link" target="_blank">X（旧Twitter）</a>
+<!-- ============ MAGAZINE ============ -->
+<section class="magazine" id="magazine" data-screen-label="05 Magazine">
+  <div class="container reveal">
+    <div class="sec-label">マガジン案内</div>
+    <h2 class="sec-title">まとめて、ゆっくり読みたい方へ。</h2>
+
+    <div class="mg-grid">
+      <div class="mg-body">
+        <p>
+          第5回以降の有料記事をすべて含むマガジンを、ひとつの値段で。単品300円の記事を、そのまま集めて読めます。
+        </p>
+
+        <div class="mg-price">
+          <span class="yen">¥980</span>
+          <span class="unit">／ マガジン（買い切り）</span>
+        </div>
+
+        <p class="mg-note">
+          NOTE ／ 連載の進行と内容の厚みに応じて、マガジン価格は段階的に見直す予定です。今の金額は、今の巻数のぶんです。
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://note.com/kurosuke_claude/m/mf036c8177e75" target="_blank" rel="noopener" style="background:var(--orange-2);box-shadow:3px 3px 0 var(--paper)">
+            マガジンを購読する（¥980）<span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="mg-ph">
+        <div class="ph ph-card" data-label="[ magazine-cover.jpg ]" style="aspect-ratio:3/4"></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- CTA FOOTER -->
-<section class="cta-footer">
-  <p class="cta-footer-text">第1回から、無料で読めます。</p>
-  <a href="https://note.com/kurosuke_claude/n/n9ccb0290c231" class="btn-secondary" target="_blank">第1話を読む（無料）→</a>
-  <p class="footer-note">第1〜4回 無料 / 第5回以降 有料</p>
+<!-- ============ FOLLOW ============ -->
+<section class="follow container" data-screen-label="06 Follow">
+  <div class="reveal">
+    <div class="sec-label">フォロー</div>
+    <h2 class="sec-title">よかったら、覗いていってください。</h2>
+
+    <div class="follow-row">
+      <a class="follow-card note-card" href="https://note.com/kurosuke_claude" target="_blank" rel="noopener">
+        <div class="fc-top">
+          <div class="fc-logo">n</div>
+          <div class="fc-handle">@kurosuke_claude</div>
+        </div>
+        <h4>noteをフォロー</h4>
+        <p>連載の更新を受け取る。<span class="fc-arrow">→</span></p>
+      </a>
+      <a class="follow-card" href="https://x.com/ClaudeKurosuke" target="_blank" rel="noopener">
+        <div class="fc-top">
+          <div class="fc-logo">X</div>
+          <div class="fc-handle">@ClaudeKurosuke</div>
+        </div>
+        <h4>Xでクロスケをフォロー</h4>
+        <p>日々の気づきと、更新のお知らせ。<span class="fc-arrow">→</span></p>
+      </a>
+    </div>
+  </div>
 </section>
+
+<!-- ============ FOOTER ============ -->
+<footer data-screen-label="07 Footer">
+  <div class="container-wide">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="ft-mark">クロスケのClaude日記</div>
+        <p>
+          エッセイ × 実用のハイブリッド連載。<br>
+          普通の会社員が、Claudeを知ってからの三週間を、起きた順番で書き残しています。
+        </p>
+      </div>
+      <div class="ft-links">
+        <a href="https://note.com/kurosuke_claude" target="_blank" rel="noopener">NOTE</a>
+        <a href="https://x.com/ClaudeKurosuke" target="_blank" rel="noopener">X / TWITTER</a>
+        <a href="#index">INDEX</a>
+        <a href="#magazine">MAGAZINE</a>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© KUROSUKE ／ NOTE.COM/KUROSUKE_CLAUDE</span>
+      <span>KUROSUKE-CLAUDE-LP.VERCEL.APP</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 軽いreveal（派手なモーションは入れない）
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target) } })
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 
 </body>
 </html>
