@@ -108,7 +108,12 @@
   .container-wide{max-width:1040px;margin:0 auto;padding:0 28px}
 
   /* ========= ヒーロー ========= */
-  .hero{padding:72px 0 84px;position:relative}
+  .hero{padding:56px 0 72px;position:relative}
+  @media (max-width:600px){
+    .hero{padding:40px 0 56px}
+    .hero-meta{gap:14px;font-size:10px}
+    .cta-row .btn{width:100%;justify-content:center}
+  }
   .hero .kicker{
     font-family:var(--mono);font-size:11px;letter-spacing:.28em;
     color:var(--orange-deep);text-transform:uppercase;
@@ -120,11 +125,12 @@
   .hero h1{
     font-family:var(--serif);
     font-weight:700;
-    font-size:clamp(34px, 5.2vw, 62px);
-    line-height:1.32;
+    font-size:clamp(28px, 5.2vw, 62px);
+    line-height:1.38;
     letter-spacing:.01em;
     margin:0 0 28px;
     color:var(--ink);
+    word-break:auto-phrase;
   }
   .hero h1 .accent{
     color:var(--orange);
@@ -256,13 +262,22 @@
   }
 
   /* ========= About ========= */
-  .about{display:grid;grid-template-columns: 240px 1fr;gap:48px;align-items:start}
-  @media (max-width:720px){ .about{grid-template-columns:1fr} }
-  .about-ph{width:100%}
-  .about-ph .ph{aspect-ratio:4/5}
-  .about-caption{
-    font-family:var(--mono);font-size:10px;letter-spacing:.18em;
-    color:var(--ink-mute);margin-top:10px;text-align:center;
+  .about{
+    display:flex;align-items:flex-start;gap:20px;
+  }
+  .about-avatar{
+    flex:0 0 auto;
+    width:96px;height:96px;border-radius:50%;
+    overflow:hidden;
+    background:var(--paper-warm);
+    border:2px solid var(--orange);
+    box-shadow: 0 0 0 3px var(--paper), 0 0 0 4px var(--rule);
+    display:grid;place-items:center;
+  }
+  .about-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+  @media (max-width:520px){
+    .about{flex-direction:column;align-items:flex-start;gap:14px}
+    .about-avatar{width:84px;height:84px}
   }
   .about-body .pen{
     font-family:var(--mono);font-size:11px;letter-spacing:.24em;
@@ -323,9 +338,21 @@
   .ix-arrow{
     font-family:var(--serif);font-weight:400;font-size:22px;color:var(--ink-mute);
   }
-  @media (max-width:640px){
-    .index-item{grid-template-columns:56px 1fr auto;}
-    .ix-badge{grid-column:1 / -1;justify-self:start;margin-top:4px}
+  @media (max-width:768px){
+    .index-item{
+      grid-template-columns:auto auto 1fr;
+      grid-template-areas:
+        "num badge arrow"
+        "title title title";
+      gap:10px 14px;
+      padding:18px 0;
+    }
+    .ix-num{grid-area:num;font-size:22px}
+    .ix-num small{display:inline;margin-left:8px;font-size:9.5px}
+    .ix-badge{grid-area:badge;margin-top:0;align-self:center}
+    .ix-title{grid-area:title;font-size:16px;line-height:1.6}
+    .ix-arrow{grid-area:arrow;align-self:center;justify-self:end}
+    .index-item:hover{padding-left:0;padding-right:0}
   }
   .index-more{
     margin-top:22px;text-align:center;
@@ -373,9 +400,19 @@
     transition:color .2s;
   }
   .bg-arrow{font-family:var(--serif);font-size:16px;color:var(--ink-mute)}
-  @media (max-width:640px){
-    .bangai-item{grid-template-columns:56px 1fr auto}
-    .bg-badge{grid-column:1 / -1;justify-self:start;margin-top:2px}
+  @media (max-width:768px){
+    .bangai-item{
+      grid-template-columns:auto auto 1fr;
+      grid-template-areas:
+        "num badge arrow"
+        "title title title";
+      gap:8px 12px;padding:14px 0;
+    }
+    .bg-num{grid-area:num}
+    .bg-badge{grid-area:badge;margin-top:0;align-self:center}
+    .bg-title{grid-area:title;font-size:14.5px;line-height:1.65}
+    .bg-arrow{grid-area:arrow;align-self:center;justify-self:end}
+    .bangai-item:hover{padding-left:0;padding-right:0}
   }
 
   /* ========= マガジン案内 ========= */
@@ -394,7 +431,11 @@
   .magazine .sec-label{color:var(--orange-2)}
   .magazine .sec-title{color:var(--paper)}
   .mg-grid{display:grid;grid-template-columns: 1fr 260px;gap:48px;align-items:center}
-  @media (max-width:720px){ .mg-grid{grid-template-columns:1fr} }
+  @media (max-width:720px){ .mg-grid{grid-template-columns:1fr;gap:28px} }
+  @media (max-width:520px){
+    .mg-price .yen{font-size:40px}
+    .magazine .cta-row .btn{width:100%;justify-content:center}
+  }
   .mg-body p{
     font-family:var(--serif);font-size:17px;line-height:2;color:#D9CCBA;margin:0 0 12px;
   }
@@ -471,6 +512,30 @@
   .ft-bottom{
     margin-top:32px;padding-top:20px;border-top:1px solid var(--rule);
     display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;flex-wrap:wrap;gap:12px;
+  }
+
+  /* ========= Mobile polish ========= */
+  @media (max-width:600px){
+    section{padding:52px 0}
+    .container, .container-wide{padding:0 20px}
+    header.nav{padding:16px 20px;flex-wrap:wrap;gap:12px}
+    nav.menu{gap:14px;font-size:12px;flex-wrap:wrap}
+    .sec-title{font-size:24px;margin-bottom:22px}
+    .intro p{font-size:16px;line-height:1.95}
+    .intro .lead-mark{font-size:48px;padding:4px 10px 0 0}
+    .about-body h3{font-size:22px;margin-bottom:18px}
+    .about-body .bio{font-size:15.5px;line-height:1.95;padding:18px 0}
+    .index-head, .index-foot{font-size:14px}
+    .follow-row{gap:14px}
+    footer .ft-grid{flex-direction:column;gap:18px}
+    footer .ft-bottom{font-size:10px;flex-direction:column;gap:6px;align-items:flex-start}
+    .ribbon{font-size:10px;letter-spacing:.1em;padding:8px 14px}
+  }
+  @media (max-width:420px){
+    .hero .kicker{font-size:10px;letter-spacing:.2em}
+    .hero .quote{font-size:15.5px;padding-left:14px}
+    .mh-title, .brand-text{font-size:14px}
+    .bangai-head{flex-wrap:wrap}
   }
 
   /* reveal */
@@ -556,9 +621,8 @@
     <h2 class="sec-title">クロスケ、と呼ばれています。</h2>
 
     <div class="about">
-      <div class="about-ph">
-        <div class="ph ph-4-5" data-label="[ tie-icon.png ]"></div>
-        <div class="about-caption">IMG_01 ／ ネクタイ記号</div>
+      <div class="about-avatar" aria-hidden="true">
+        <img src="necktie.png" alt="" width="96" height="96" loading="lazy" />
       </div>
       <div class="about-body">
         <div class="pen">Pen name ── クロスケ</div>
